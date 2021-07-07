@@ -1,33 +1,35 @@
 import 'styled-components';
-
 declare module 'styled-components' {
   export interface DefaultTheme {
-    breakPoint: {
-      Mobile: number,
-      TabletM: number,
-      TabletL: number,
-      DesktopS: number,
-      DesktopM: number,
-      DesktopL: number,
-    },
+    deviceSizes: {
+      MobileS: string
+      MobileM: string
+      MobileL: string
+      Tablet: string
+      Laptop: string
+      DesktopS: string
+      DesktopM: string
+      DesktopL: string
+    }
     fontSize: {
-      largeTitle: number;
-      title: number;
-      subTitle: number;
-      description: number;
-      smallText: number;
+      largeTitle: string
+      title: string
+      subTitle: string
+      description: string
+      middleText: string
+      smallText: string
     }
     colors: {
-      black: string;
-      white: string;
-      primary: string;
-      sub: string;
-      BFD: string;
-      ERP: string;
-      HMH: string;
-      FRS: string;
-      KIWINOMICS: string;
-      TAXI: string;
-    };
+      black: string
+      white: string
+      primary: string
+      sub: string
+      BFD: string
+      ERP: string
+      HMH: string
+      FRS: string
+      KIWINOMICS: string
+      TAXI: string
+    }
   }
 }
