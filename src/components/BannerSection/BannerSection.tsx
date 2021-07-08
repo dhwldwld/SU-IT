@@ -32,7 +32,7 @@ const BannerContent = styled.div`
     z-index: 2;
     color: ${({theme}) => theme.colors.white};
     left: 1rem;
-    bottom: 10rem;
+    bottom: 15rem;
     ${mixin.laptop(css`
         bottom: 22rem;
     `)}
@@ -78,9 +78,8 @@ const BannerDescription = styled.p`
 const BgDesign = styled.div`
     position: absolute;
     height: 90%;
-    max-height: 900px;
-    width: 60%;
-    max-width: 1000px;
+    width: 100%;
+    max-width: 1100px;
     right: 0;
     top: 5%;
     transition: .4s;

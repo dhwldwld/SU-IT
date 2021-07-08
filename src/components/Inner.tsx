@@ -7,7 +7,7 @@ type Props = {
 
 const Container = styled.div`
     height: 100%;
-    max-width: ${({theme}) => theme.deviceSizes.DesktopM};
+    max-width: ${({theme}) => theme.deviceSizes.DesktopL};
     margin: 0 auto;
     padding: 0 15px;
 `
