@@ -78,7 +78,9 @@ const BannerDescription = styled.p`
 const BgDesign = styled.div`
     position: absolute;
     height: 90%;
+    max-height: 900px;
     width: 60%;
+    max-width: 1000px;
     right: 0;
     top: 5%;
     transition: .4s;
