@@ -6,15 +6,22 @@ import { FaBars } from 'react-icons/fa'
 
 import * as mixin from '../../styles/mixin'
 
-const Container = styled.div`
+import Inner from '../Inner'
+
+type Props = {
+  openModal?: () => void
+}
+
+const Container = styled.div<{scrollNav: boolean}>`
   position: sticky;
+  background: ${({theme}) => theme.colors.white};
   top: 0;
   width: 100%;
   z-index: 3;
-  box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.04);
+  box-shadow: ${({scrollNav}) => (scrollNav ? '0 1px 1px rgba(0,0,0,.04), 0 10px 30px rgba(0,0,0,.15)': 'none')};
   height: 9rem;
   transition: .4s;
-  ${mixin.Tablet(css`
+  ${mixin.tablet(css`
         height: 7rem;
   `)}
 `
@@ -22,17 +29,23 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: ${({theme}) => theme.deviceSizes.DesktopM};
   height: 100%;
-  margin: 0 auto;
-  padding: 0 15px;
 `
 const NavLogo = styled.div``
-const NavImg = styled.div``
+const NavImg = styled.a`
+  display: none;
+  font-size: 3.5rem;
+  ${mixin.tablet(css`
+    display: block;
+  `)}
+`
 const NavList = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
+  ${mixin.tablet(css`
+    display: none;
+  `)}
 `
 const NavItem = styled.a`
   display: flex;
@@ -48,37 +61,50 @@ const NavItem = styled.a`
   }
 `
 
-const Navbar = () => {
-    const [isMobile, setIsMobile] = useState<boolean>(false);
-    return (
-        <Container>
-        <Wrapper>
-          <NavLogo>
-            <Link href="/">
-              <a><Image src="/images/logo-suit.svg" alt="Logo_SU-IT" width={50} height={55} /></a>
-            </Link>
-          </NavLogo>
-          {isMobile ? (
-              <NavImg>
-                  <FaBars/>
-              </NavImg>
-          ):(
-                <NavList>
-                    <Link href="/#Introduce">
-                        <NavItem>Introduce</NavItem>
-                    </Link>
-                    <Link href="/#Apply">
-                        <NavItem>Apply</NavItem>
-                    </Link>
-                    <Link href="/#Q&A">
-                        <NavItem>Q&A</NavItem>
-                    </Link>
-                    <NavItem onClick={() => openModal()}>Login</NavItem>
-                </NavList>
-          )}
-        </Wrapper>
-      </Container>
-    )
+const Navbar = ({openModal}:Props) => {
+  const [scrollNav, setScrollNav] = useState(false)
+
+  const changeNav = () => {
+    if(window.scrollY >= 80) {
+      setScrollNav(true)
+    }
+    else {
+      setScrollNav(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll',changeNav)
+  },[])
+
+  return (
+    <Container scrollNav={scrollNav}>
+      <Inner>
+      <Wrapper>
+        <NavLogo>
+          <Link href="/">
+            <Image src="/images/logo-suit.svg" alt="Logo_SU-IT" width={50} height={55} />
+          </Link>
+        </NavLogo>
+        <NavImg>
+          <FaBars/>
+        </NavImg>
+        <NavList>
+          <Link href="/#Introduce">
+            <NavItem>Introduce</NavItem>
+          </Link>
+          <Link href="/#Apply">
+            <NavItem>Apply</NavItem>
+          </Link>
+          <Link href="/#QnA">
+            <NavItem>Q&A</NavItem>
+          </Link>
+          <NavItem onClick={openModal}>Login</NavItem>
+        </NavList>
+      </Wrapper>
+      </Inner>
+    </Container>
+  )
 }
 
 export default Navbar

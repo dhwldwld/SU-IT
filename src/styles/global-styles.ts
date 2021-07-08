@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   *::after {
     box-sizing: inherit;
   }
-  * { font-family: 'Noto Sans KR', 'Sans-serif';}
+  * { font-family: 'Noto Sans KR', sans-serif;}
   a { 
     cursor: pointer;
     text-decoration: none;  

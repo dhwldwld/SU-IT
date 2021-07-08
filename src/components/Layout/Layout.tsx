@@ -2,6 +2,7 @@ import React, { useState, ReactNode } from 'react'
 import Head from 'next/head'
 
 import Navbar from '../Navbar/Navbar'
+import Footer from '../Footer/Footer'
 
 type Props = {
   children?: ReactNode
@@ -9,6 +10,10 @@ type Props = {
 }
 
 const Layout = ({ children, title = 'This is the default title' }: Props) => {
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const openModal = () => {
+    setIsOpenModal(!isOpenModal);
+  }
   return (
     <div>
       <Head>
@@ -16,8 +21,9 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Navbar />
+      <Navbar openModal={openModal}/>
       {children}
+      <Footer />
     </div>
   )
 }

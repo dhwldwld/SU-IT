@@ -13,9 +13,10 @@ export const mobile = (content: FlattenSimpleInterpolation) =>
             ${content}
         }
     `;
-export const Tablet = (content: FlattenSimpleInterpolation) =>
+export const tablet = (content: FlattenSimpleInterpolation) =>
     css`
         @media only screen and (max-width: ${theme.deviceSizes.Tablet}) {
             ${content}
         }
     `;
+    
