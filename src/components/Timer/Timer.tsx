@@ -41,10 +41,10 @@ const Timer = () => {
     const [timerMinutes, setTimerMinutes] = useState('00');
     const [timerSeconds, setTimerSeconds] = useState('00');
 
-    let intervalRef = useRef();
+    let intervalRef = useRef(null);
 
     const startTimer = () => {
-        const countdownDate = new Date('Aug 30, 2021 00:00:00').getTime();
+        const countdownDate = new Date('July 19, 2021 00:00:00').getTime();
 
         const interval = setInterval(() => {
             const now = new Date().getTime();
@@ -58,7 +58,7 @@ const Timer = () => {
 
             if (distance < 0) {
                 //stop our timer
-                clearInterval(interval.current);
+                clearInterval(interval);
             } else {
                 //update timer
                 setTimerDays(String(days));
