@@ -4,7 +4,7 @@ import styled,{ css } from 'styled-components'
 
 import * as mixin from '../../styles/mixin'
 
-import Inner from '../Inner'
+import Inner from '../Inner/Inner'
 
 const Container = styled.div`
     background-color: ${({theme}) => theme.colors.black};

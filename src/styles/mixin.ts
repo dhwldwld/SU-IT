@@ -19,4 +19,21 @@ export const tablet = (content: FlattenSimpleInterpolation) =>
             ${content}
         }
     `;
-    
+export const DesktopS = (content: FlattenSimpleInterpolation) =>
+css`
+    @media only screen and (max-width: ${theme.deviceSizes.DesktopS}) {
+        ${content}
+    }
+`;
+export const DesktopM = (content: FlattenSimpleInterpolation) =>
+    css`
+        @media only screen and (max-width: ${theme.deviceSizes.DesktopM}) {
+            ${content}
+        }
+    `;
+export const DesktopL = (content: FlattenSimpleInterpolation) =>
+css`
+    @media only screen and (max-width: ${theme.deviceSizes.DesktopL}) {
+        ${content}
+    }
+`;

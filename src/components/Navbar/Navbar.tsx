@@ -6,7 +6,7 @@ import { FaBars } from 'react-icons/fa'
 
 import * as mixin from '../../styles/mixin'
 
-import Inner from '../Inner'
+import Inner from '../Inner/Inner'
 
 type Props = {
   openModal?: () => void
@@ -73,6 +73,10 @@ const Navbar = ({openModal}:Props) => {
     }
   }
 
+  const toggleTop = () => {
+    window.scrollTo({top: 0});
+  }
+
   useEffect(() => {
     window.addEventListener('scroll',changeNav)
   },[])
@@ -83,7 +87,7 @@ const Navbar = ({openModal}:Props) => {
       <Wrapper>
         <NavLogo>
           <Link href="/">
-            <Image src="/images/logo-suit.svg" alt="Logo_SU-IT" width={50} height={55} />
+            <a onClick={toggleTop}><Image src="/images/logo-suit.svg" alt="Logo_SU-IT" width={50} height={55} /></a>
           </Link>
         </NavLogo>
         <NavImg>
@@ -96,7 +100,7 @@ const Navbar = ({openModal}:Props) => {
           <Link href="/#Apply">
             <NavItem>Apply</NavItem>
           </Link>
-          <Link href="/#QnA">
+          <Link href="/#Q&A">
             <NavItem>Q&A</NavItem>
           </Link>
           <NavItem onClick={openModal}>Login</NavItem>

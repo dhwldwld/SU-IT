@@ -5,6 +5,13 @@
 // import { User } from 'path/to/interfaces';
 
 export type User = {
-  id: number
-  name: string
+  id: number;
+  logo: string;
+  name: string;
+  description: string;
+  speciality: boolean;
+}
+export type QnA = {
+  question: string;
+  answer: string;
 }

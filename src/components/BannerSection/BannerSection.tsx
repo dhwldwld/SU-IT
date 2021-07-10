@@ -4,7 +4,7 @@ import styled,{ css } from 'styled-components'
 
 import * as mixin from '../../styles/mixin'
 
-import Inner from '../Inner'
+import Inner from '../Inner/Inner'
 
 const Container = styled.div`
     display: flex;
@@ -78,6 +78,7 @@ const BannerDescription = styled.p`
 const BgDesign = styled.div`
     position: absolute;
     height: 90%;
+    max-height: 1100px;
     width: 100%;
     max-width: 1100px;
     right: 0;
