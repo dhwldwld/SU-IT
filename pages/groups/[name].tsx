@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import { GetServerSideProps } from 'next'
 import axios from 'axios'
 import { server } from '../../config'
