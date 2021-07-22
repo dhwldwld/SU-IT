@@ -3,13 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styled,{ css } from 'styled-components'
 
-import { User } from '../../../interfaces'
+import { Group } from '../../../interfaces'
 import * as mixin from '../../styles/mixin'
 
 import Section from '../Section/Section'
 
 type Props = {
-    data: User[]
+    data: Group[]
 }
 
 const Container = styled.div`
@@ -24,7 +24,7 @@ const Container = styled.div`
         grid-template-columns: 1fr;
     `)}
 `
-const Group = styled.div`
+const GroupCard = styled.div`
     width: 300px;
     height: 300px;
     box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.16);
@@ -43,6 +43,11 @@ const Group = styled.div`
 const GroupLogo = styled(Image)`
     border-radius: 50%;
 `
+const Title = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 const GroupTitle = styled.span`
     font-size: ${({theme}) => theme.fontSize.subTitle};
     font-weight: bold;
@@ -54,23 +59,26 @@ const GroupIsSpeciality = styled.span`
     font-size: ${({theme}) => theme.fontSize.description};
 `
 
-const IntroduceSection = ({ data }: Props) => (
+const IntroduceSection = ({ data }: Props) => {
+    return(
     <Section page="Introduce" isprimary={false} isblack={false}>
         <Container>
             {data.map((data) => (
-                <Link href="/users/[id]" as={`/users/${data.id}`} key={data.id}>
+                <Link href="/groups/[name]" as={`/groups/${data.name}`} key={data.id}>
                 <a>
-                    <Group>
+                    <GroupCard>
                         <GroupLogo src={data.logo} width={100} height={100} />
-                        <GroupTitle>{data.name}</GroupTitle>
+                        <Title>
+                            <GroupTitle>{data.name}</GroupTitle>
+                            {data.speciality ? <GroupIsSpeciality>(전문)</GroupIsSpeciality> : null }
+                        </Title>
                         <GroupDescription>{data.description}</GroupDescription>
-                        {data.speciality ? <GroupIsSpeciality>(전문)</GroupIsSpeciality> : null }
-                    </Group>
+                    </GroupCard>
                 </a>
                 </Link>
             ))}
         </Container>
     </Section>
-)
+)}
 
 export default IntroduceSection

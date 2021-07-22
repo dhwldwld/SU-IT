@@ -15,8 +15,13 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
   }
   * { font-family: 'Noto Sans KR', sans-serif;}
-  a { 
+  a, button { 
+    padding: 0;
     cursor: pointer;
     text-decoration: none;  
+  }
+  ul, li {
+    list-style: none;
+    padding: 0;
   }
 `;

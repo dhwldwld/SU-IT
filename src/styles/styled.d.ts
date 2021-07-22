@@ -22,6 +22,7 @@ declare module 'styled-components' {
     colors: {
       black: string
       white: string
+      gray: string
       primary: string
       sub: string
       BFD: string

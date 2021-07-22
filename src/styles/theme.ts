@@ -4,7 +4,7 @@ export const theme: DefaultTheme = {
     deviceSizes: {
       MobileS: "320px",
       MobileM: "375px",
-      MobileL: "425px",
+      MobileL: "490px",
       Tablet: "768px",
       Laptop: "1024px",
       DesktopS: "1280px",
@@ -22,6 +22,7 @@ export const theme: DefaultTheme = {
     colors: {
       black: '#000000',
       white: '#ffffff',
+      gray: '#cccccc',
       primary: '#133230',
       sub: '#FFC665',
       BFD: '#97BDE1',

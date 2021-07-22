@@ -1,10 +1,13 @@
 import React,{ useState, useRef, useEffect } from 'react'
-import styled from 'styled-components'
+import styled,{ css } from 'styled-components'
+
+import * as mixin from '../../styles/mixin'
 
 const Container = styled.div`
     color: ${({theme}) => theme.colors.white};
     display: flex;
     margin-bottom: 10rem;
+    width: 100%;
 `
 const TimerWrapper = styled.div`
     display: flex;
@@ -26,25 +29,37 @@ const TimerWrapper = styled.div`
             display: none;
         }
     }
+    ${mixin.tablet(css`
+        padding: 0 2rem;
+    `)}
+    ${mixin.mobile(css`
+        padding: 0 1rem;
+    `)}
 `
 const TimerNum = styled.span`
-    font-size: ${({theme}) => theme.fontSize.largeTitle};
+    font-size: 64px;
     font-weight: bold;
+    ${mixin.mobile(css`
+        font-size: 48px;
+    `)}
 `
 const TimerTxt = styled.span`
-    font-size: ${({theme}) => theme.fontSize.subTitle};
+    font-size: 24px;
+    ${mixin.mobile(css`
+        font-size: 18px;
+    `)}
 `
 
 const Timer = () => {
-    const [timerDays, setTimerDays] = useState('00');
-    const [timerHours, setTimerHours] = useState('00');
-    const [timerMinutes, setTimerMinutes] = useState('00');
-    const [timerSeconds, setTimerSeconds] = useState('00');
+    const [timerDays, setTimerDays] = useState('0');
+    const [timerHours, setTimerHours] = useState('0');
+    const [timerMinutes, setTimerMinutes] = useState('0');
+    const [timerSeconds, setTimerSeconds] = useState('0');
 
     let intervalRef = useRef(null);
 
     const startTimer = () => {
-        const countdownDate = new Date('July 19, 2021 00:00:00').getTime();
+        const countdownDate = new Date('july 19, 2021 00:00:00').getTime();
 
         const interval = setInterval(() => {
             const now = new Date().getTime();

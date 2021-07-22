@@ -4,7 +4,7 @@ import styled from 'styled-components'
 type Props = {
     isblack: boolean
     content: string
-    click?: () => void
+    click: () => void
 }
 
 const Container = styled.button<{isblack: boolean}>`

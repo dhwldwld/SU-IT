@@ -1,5 +1,7 @@
 import React, { ReactNode } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+import * as mixin from '../../styles/mixin'
 
 type Props = {
   children?: ReactNode
@@ -10,6 +12,9 @@ const Container = styled.div`
     max-width: ${({theme}) => theme.deviceSizes.DesktopL};
     margin: 0 auto;
     padding: 0 15px;
+    ${(mixin.mobile(css`
+        padding: 0;
+    `))}
 `
 
 const Inner = ({ children }:Props) => {
