@@ -20,8 +20,8 @@ const DetailCarousel = ({ name, imgcount }: Props) => {
         <Carousel showThumbs={false} autoPlay={true} infiniteLoop={true} showStatus={false} showIndicators={false}>
             {array.map((_, index) =>
                 <Wrapper key={index}>
-                    <Image  src={`/detailCards/${name}/${index}.jpg`} layout='fill' objectFit='contain' />
-                </Wrapper>
+                    <Image key={index}  src={`/detailCards/${name}/${index}.png`} layout='fill' objectFit='contain' />
+                </Wrapper>  
             )}
         </Carousel>
     )

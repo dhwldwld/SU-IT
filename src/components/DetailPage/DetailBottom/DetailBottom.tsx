@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import styled,{ css } from 'styled-components';
 
@@ -6,7 +6,6 @@ import { Contact } from '../../../../interfaces'
 import * as mixin from '../../../styles/mixin'
 
 import ApplyButton from '../../ApplyButton/ApplyButton'
-import ApplyModal from '../../ApplyModal/ApplyModal';
 
 type Props = {
     contact: Contact
@@ -68,10 +67,6 @@ const Description = styled.p`
 `
 
 const DetailBottom = ({ contact }: Props) => {
-    const [isApplyModal, setIsApplyModal] = useState(false);
-    const toggleApplyModal = () => {
-        setIsApplyModal(!isApplyModal)
-    }
     return (
         <Container>
             <Wrapper>
