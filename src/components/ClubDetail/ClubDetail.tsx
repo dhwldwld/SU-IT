@@ -23,7 +23,6 @@ const DetailTop = styled.div`
     align-items: center;
     justify-content: center;
     padding: 5rem 0;
-    background: linear-gradient(to top, transparent, rgba(0,0,0,.02));
 `
 
 const ClubDetail = ({ clubdata, detaildata }: GroupDetailProps) => {
