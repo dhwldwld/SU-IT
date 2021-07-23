@@ -17,6 +17,7 @@ type Props = {
 }
 
 const QnASection = ({ data, groups }: Props) => {
+    groups.push({id: '학과', name:'학과'})
     const [qnAModal, setIsQnAModal] = useState(false);
     const toggleQnAMqdal = () => {
         setIsQnAModal(!qnAModal)

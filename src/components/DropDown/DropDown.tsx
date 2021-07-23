@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React,{ useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { FaChevronRight } from 'react-icons/fa'
 import { Group } from '../../../interfaces';
@@ -10,6 +10,7 @@ type Props ={
 const Container = styled.div<{open: boolean}>`
     position: relative;
     width: 100%;
+    margin: 10px 0;
     border: 1px solid ${({theme}) => theme.colors.gray};
     border-radius: ${({open}) => open ? '10px 10px 0 0' : '10px'};
     background-color: white;
@@ -55,7 +56,6 @@ const Arrow = styled.div<{open: boolean}>`
 `
 
 const DropDown = ({ groups }: Props) => {
-    groups.push({id: '학과', name:'학과'})
   const [isOpen, setOpen] = useState(false);
   const [items, setItem] = useState(groups);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -65,7 +65,7 @@ const DropDown = ({ groups }: Props) => {
   const handleItemClick = (id) => {
     selectedItem == id ? setSelectedItem(null) : setSelectedItem(id);
   }
-  
+
   return (
     <Container open={isOpen}>
       <Header onClick={toggleDropdown}>
@@ -75,7 +75,6 @@ const DropDown = ({ groups }: Props) => {
         </Arrow>
       </Header>
       <Wrapper open={isOpen}>
-          <Item onClick={(e) => {handleItemClick('학과');toggleDropdown()}}>학과</Item>
         {items.map(item => (
           <Item id={`${item.id}`} onClick={(e) => {handleItemClick(item.id); toggleDropdown()}} key={item.id}>
             {item.name}

@@ -29,12 +29,12 @@ const Form = styled.form`
     flex-direction: column;
 `
 const FormInput = styled.input`
-    margin: 10px 0;
     height: 50px;
     padding: 15px;
     display: block;
     border: none;
     border-bottom: solid 1px ${({theme}) => theme.colors.gray};
+    border-radius: 0 0 10px 10px;
     transition: all 0.3s cubic-bezier(.64,.09,.08,1);
     background: linear-gradient(to bottom, rgba(255,255,255,0) 98%, ${({theme}) => theme.colors.primary} 2%);
     background-position: -400px 0;
@@ -97,8 +97,8 @@ const QnAModal = ({ openModal, groups }: Props) => {
             <Container>
                 <Title>Q&A</Title>
                 <Form>
-                    <FormInput type='email' name='email' id='email' placeholder='E-mail' required />
                     <DropDown groups={groups} />
+                    <FormInput type='email' name='email' id='email' placeholder='E-mail' required />
                     <FormTextArea cols={10} rows={10} placeholder='내용을 입력하세요.' required ></FormTextArea>
                     <FormButton type='submit'>SUBMIT</FormButton>
                 </Form>
