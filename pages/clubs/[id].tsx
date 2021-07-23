@@ -43,8 +43,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback:true }
 }
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const id = ctx.params.id;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const id = params.id;
   const clubs = await axios.get(`${server}/api/clubs/${id}`)
   const details = await axios.get(`${server}/api/details/${id}`)
   return { props: {
