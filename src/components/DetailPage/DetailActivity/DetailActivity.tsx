@@ -2,12 +2,12 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 
 import * as mixin from '../../../styles/mixin'
-import { Group } from '../../../../interfaces'
+import { Club } from '../../../../interfaces'
 
 import DetailSection from '../../DetailSection/DetailSection'
 
 type Props = {
-    groupdata: Group
+    clubdata: Club
     activity: string
 }
 
@@ -21,8 +21,8 @@ const ActivityText = styled.p`
     `)}
 `
 
-const DetailActivity = ({ groupdata, activity }: Props) => (
-    <DetailSection title='Activity' isBgColor={false} mainColor={groupdata.color}>
+const DetailActivity = ({ clubdata, activity }: Props) => (
+    <DetailSection title='Activity' isBgColor={false} mainColor={clubdata.color}>
         <ActivityText>
             {activity}
         </ActivityText>

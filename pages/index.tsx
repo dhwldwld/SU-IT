@@ -8,19 +8,19 @@ import IntroduceSection from '../src/components/IntroduceSection/IntroduceSectio
 import ApplySection from '../src/components/ApplySection/ApplySection'
 import QnASection from '../src/components/QnASection/QnASection'
 
-import { GroupData, QnA } from '../interfaces'
+import { ClubData, QnA } from '../interfaces'
 
 type Props = {
-  groupdata: GroupData
+  clubdata: ClubData
   qnadata: QnA[]
   errors?: string
 }
 
 
-const IndexPage = ({ groupdata, qnadata, errors }: Props) => {
-  const groups = [];
-    for (const [key, value] of Object.entries(groupdata)) {
-      const group = {
+const IndexPage = ({ clubdata, qnadata, errors }: Props) => {
+  const clubs = [];
+    for (const [key, value] of Object.entries(clubdata)) {
+      const club = {
           id: key,
           logo: value.logo,
           name: value.name,
@@ -28,8 +28,12 @@ const IndexPage = ({ groupdata, qnadata, errors }: Props) => {
           color: value.color,
           description: value.description,
       }
-      groups.push(group)
+      clubs.push(club)
     }
+
+  const qnaclubs = [...clubs]
+  qnaclubs.unshift({id:'학과', name: '학과'})
+    
   if (errors) {
     return (
       <p>
@@ -40,9 +44,9 @@ const IndexPage = ({ groupdata, qnadata, errors }: Props) => {
   return (
     <Layout title="Home | SU-IT">
       <BannerSection />
-      <IntroduceSection data={groups}/>
-      <ApplySection groups={groups} />
-      <QnASection data={qnadata} groups={groups}/>
+      <IntroduceSection data={clubs}/>
+      <ApplySection clubs={clubs} />
+      <QnASection data={qnadata} clubs={qnaclubs}/>
     </Layout>
   )
 }
@@ -50,10 +54,10 @@ export default IndexPage
 
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const groups = await axios.get(`${server}/api/groups`)
+  const clubs = await axios.get(`${server}/api/clubs`)
   const qnadata = await axios.get(`${server}/api/qna`)
   return { props: {
-    groupdata: groups.data,
+    clubdata: clubs.data,
     qnadata: qnadata.data
   }}
 }

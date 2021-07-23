@@ -1,7 +1,7 @@
-import { GroupData } from '../../interfaces'
+import { ClubData } from '../../interfaces'
 
 /** Dummy user data. */
-export const groupData: GroupData = {
+export const clubData: ClubData = {
   BFD: { logo: `/images/BFD.png`, name: 'BFD', description: '창업에 대한 이론을 배우는 동아리', speciality: true, color:'#97BDE1', imgcount:9 },
   ERP: { logo: `/images/ERP.png`, name: 'ERP', description: '전사적자원관리 동아리', speciality: true, color:'#75A972', imgcount: 9 },
   HMH: { logo: `/images/HMH.png`, name: 'HMH', description: 'HMH', speciality: true, color:'#E77B84', imgcount:5 },

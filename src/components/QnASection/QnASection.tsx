@@ -8,16 +8,15 @@ import Section from '../Section/Section'
 import Button from '../Button/Button'
 import Carousel from '../Carousel/Carousel'
 
-import { Group, QnA } from '../../../interfaces'
+import { Club, QnA } from '../../../interfaces'
 import QnAModal from '../QnAModal/QnAModal';
 
 type Props = {
     data: QnA[]
-    groups: Group[]
+    clubs: Club[]
 }
 
-const QnASection = ({ data, groups }: Props) => {
-    groups.push({id: '학과', name:'학과'})
+const QnASection = ({ data, clubs }: Props) => {
     const [qnAModal, setIsQnAModal] = useState(false);
     const toggleQnAMqdal = () => {
         setIsQnAModal(!qnAModal)
@@ -25,7 +24,7 @@ const QnASection = ({ data, groups }: Props) => {
     return (
     <Section page="Q&A" isblack={false} isprimary={false}>
         {qnAModal &&
-            <QnAModal openModal={toggleQnAMqdal} groups={groups} />
+            <QnAModal openModal={toggleQnAMqdal} clubs={clubs} />
         }
         <Carousel data={data} />
         <Button click={toggleQnAMqdal} isblack={false} content="질문하기" />

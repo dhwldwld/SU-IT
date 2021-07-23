@@ -1,4 +1,4 @@
-export type Group = {
+export type Club = {
   id?: string
   logo?: string
   name?: string
@@ -34,8 +34,8 @@ export type Detail = {
   contact: Contact
 }
 
-export interface GroupData {
-  [id: string]: Group
+export interface ClubData {
+  [id: string]: Club
 }
 
 export interface DetailData {

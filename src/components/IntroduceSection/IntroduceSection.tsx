@@ -3,13 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styled,{ css } from 'styled-components'
 
-import { Group } from '../../../interfaces'
+import { Club } from '../../../interfaces'
 import * as mixin from '../../styles/mixin'
 
 import Section from '../Section/Section'
 
 type Props = {
-    data: Group[]
+    data: Club[]
 }
 
 const Container = styled.div`
@@ -24,7 +24,7 @@ const Container = styled.div`
         grid-template-columns: 1fr;
     `)}
 `
-const GroupCard = styled.div`
+const ClubCard = styled.div`
     width: 300px;
     height: 300px;
     box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.16);
@@ -40,7 +40,7 @@ const GroupCard = styled.div`
         filter: opacity(80%);
     }
 `
-const GroupLogo = styled(Image)`
+const ClubLogo = styled(Image)`
     border-radius: 50%;
 `
 const Title = styled.div`
@@ -48,14 +48,14 @@ const Title = styled.div`
     flex-direction: column;
     align-items: center;
 `
-const GroupTitle = styled.span`
+const ClubTitle = styled.span`
     font-size: ${({theme}) => theme.fontSize.subTitle};
     font-weight: bold;
 `
-const GroupDescription = styled.span`
+const ClubDescription = styled.span`
     font-size: ${({theme}) => theme.fontSize.description};
 `
-const GroupIsSpeciality = styled.span`
+const ClubIsSpeciality = styled.span`
     font-size: ${({theme}) => theme.fontSize.description};
 `
 
@@ -64,16 +64,16 @@ const IntroduceSection = ({ data }: Props) => {
     <Section page="Introduce" isprimary={false} isblack={false}>
         <Container>
             {data.map((data) => (
-                <Link href="/groups/[name]" as={`/groups/${data.name}`} key={data.id}>
+                <Link href="/clubs/[name]" as={`/clubs/${data.name}`} key={data.id}>
                 <a>
-                    <GroupCard>
-                        <GroupLogo src={data.logo} width={100} height={100} />
+                    <ClubCard>
+                        <ClubLogo src={data.logo} width={100} height={100} />
                         <Title>
-                            <GroupTitle>{data.name}</GroupTitle>
-                            {data.speciality ? <GroupIsSpeciality>(전문)</GroupIsSpeciality> : null }
+                            <ClubTitle>{data.name}</ClubTitle>
+                            {data.speciality ? <ClubIsSpeciality>(전문)</ClubIsSpeciality> : null }
                         </Title>
-                        <GroupDescription>{data.description}</GroupDescription>
-                    </GroupCard>
+                        <ClubDescription>{data.description}</ClubDescription>
+                    </ClubCard>
                 </a>
                 </Link>
             ))}

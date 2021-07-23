@@ -5,11 +5,11 @@ import styled,{ css } from 'styled-components'
 
 import * as mixin from '../../styles/mixin'
 import Modal from '../Modal/Modal'
-import { Group } from '../../../interfaces'
+import { Club } from '../../../interfaces'
 
 type Props = {
     openModal: () => void
-    groups: Group[]
+    clubs: Club[]
 }
 
 const Container = styled.div`
@@ -87,13 +87,13 @@ const GroupDescription = styled.span`
 `
 
 
-const ApplyModal = ({ openModal, groups }: Props) => {
+const ApplyModal = ({ openModal, clubs }: Props) => {
     return (
         <Modal openModal={openModal}>
             <Container>
                 <ModalTitle>APPLY</ModalTitle>
                 <Wrapper>
-                    {groups.map((data) => (
+                    {clubs.map((data) => (
                         <Link href="/groups/[name]" as={`/groups/${data.name}`} key={data.id}>
                         <a>
                             <GroupCard>

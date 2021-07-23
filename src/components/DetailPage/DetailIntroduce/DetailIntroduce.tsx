@@ -3,12 +3,12 @@ import Image from 'next/image'
 import styled, { css } from 'styled-components'
 
 import * as mixin from '../../../styles/mixin'
-import { Group } from '../../../../interfaces'
+import { Club } from '../../../../interfaces'
 
 import DetailSection from '../../DetailSection/DetailSection'
 
 type Props = {
-    groupdata: Group
+    clubdata: Club
     introduce: string
 }
 
@@ -33,12 +33,12 @@ const IntrduceText = styled.p`
     `)}
 `
 
-const DetailIntorduce = ({ groupdata, introduce }: Props) => {
+const DetailIntorduce = ({ clubdata, introduce }: Props) => {
     return(
-    <DetailSection title='Introduce' isBgColor={false} mainColor={groupdata.color}>
+    <DetailSection title='Introduce' isBgColor={false} mainColor={clubdata.color}>
         <Container>
             <Logo>
-                <Img src={groupdata.logo} alt={groupdata.name} width={160} height={160} />
+                <Img src={clubdata.logo} alt={clubdata.name} width={160} height={160} />
             </Logo>
             <IntrduceText>
                 {introduce}

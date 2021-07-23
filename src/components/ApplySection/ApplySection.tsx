@@ -5,10 +5,10 @@ import ApplyModal from '../ApplyModal/ApplyModal'
 import Section from '../Section/Section'
 import Timer from '../Timer/Timer'
 import Button from '../Button/Button'
-import { Group } from '../../../interfaces'
+import { Club } from '../../../interfaces'
 
 type Props = {
-    groups: Group[]
+    clubs: Club[]
 }
 
 const Container = styled.div`
@@ -16,7 +16,7 @@ const Container = styled.div`
     padding: 10rem 0;
 `
 
-const ApplySection = ({ groups }: Props) => {
+const ApplySection = ({ clubs }: Props) => {
     const [isapplyModal, setIsApplyModal] = useState(false);
     const toggleApplyModal = () => {
         setIsApplyModal(!isapplyModal)
@@ -24,7 +24,7 @@ const ApplySection = ({ groups }: Props) => {
     return(
     <Section page="Apply" isprimary={false} isblack={true}>
         {isapplyModal &&
-            <ApplyModal openModal={toggleApplyModal} groups={groups} />
+            <ApplyModal openModal={toggleApplyModal} clubs={clubs} />
         }
         <Container>
             <Timer />

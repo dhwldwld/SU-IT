@@ -2,12 +2,12 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 
 import * as mixin from '../../../styles/mixin'
-import { Awards, Group } from '../../../../interfaces'
+import { Awards, Club } from '../../../../interfaces'
 
 import DetailSection from '../../DetailSection/DetailSection'
 
 type Props = {
-    groupdata: Group
+    clubdata: Club
     awards: Awards[]
 }
 
@@ -72,8 +72,8 @@ const AwardsRate = styled.span`
     }
 `
 
-const DetailAwards = ({ groupdata, awards }: Props) => (
-    <DetailSection title='Awards' isBgColor={true} mainColor={groupdata.color}>
+const DetailAwards = ({ clubdata, awards }: Props) => (
+    <DetailSection title='Awards' isBgColor={true} mainColor={clubdata.color}>
         <ScrollBox>
             <Container>
                 {awards.map((data) => 

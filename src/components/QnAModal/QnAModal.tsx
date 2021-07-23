@@ -1,13 +1,13 @@
 import React from 'react'
 import styled,{ css } from 'styled-components'
-import { Group } from '../../../interfaces'
+import { Club } from '../../../interfaces'
 
 import * as mixin from '../../styles/mixin'
 import DropDown from '../DropDown/DropDown'
 import Modal from '../Modal/Modal'
 type Props = {
     openModal: () => void
-    groups: Group[]
+    clubs: Club[]
 }
 
 const Container = styled.div`
@@ -91,13 +91,13 @@ const FormButton = styled.button`
     }
 `
 
-const QnAModal = ({ openModal, groups }: Props) => {
+const QnAModal = ({ openModal, clubs }: Props) => {
     return (
         <Modal openModal={openModal}>
             <Container>
                 <Title>Q&A</Title>
                 <Form>
-                    <DropDown groups={groups} />
+                    <DropDown clubs={clubs} />
                     <FormInput type='email' name='email' id='email' placeholder='E-mail' required />
                     <FormTextArea cols={10} rows={10} placeholder='내용을 입력하세요.' required ></FormTextArea>
                     <FormButton type='submit'>SUBMIT</FormButton>

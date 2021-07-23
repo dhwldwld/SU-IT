@@ -1,10 +1,10 @@
 import React,{ useState, useEffect } from 'react'
 import styled from 'styled-components';
 import { FaChevronRight } from 'react-icons/fa'
-import { Group } from '../../../interfaces';
+import { Club } from '../../../interfaces';
 
 type Props ={
-    groups: Group[]
+    clubs: Club[]
 }
 
 const Container = styled.div<{open: boolean}>`
@@ -55,9 +55,9 @@ const Arrow = styled.div<{open: boolean}>`
 
 `
 
-const DropDown = ({ groups }: Props) => {
+const DropDown = ({ clubs }: Props) => {
   const [isOpen, setOpen] = useState(false);
-  const [items, setItem] = useState(groups);
+  const [items, setItem] = useState(clubs);
   const [selectedItem, setSelectedItem] = useState(null);
   
   const toggleDropdown = () => setOpen(!isOpen);

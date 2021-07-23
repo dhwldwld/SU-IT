@@ -2,16 +2,16 @@ import React from 'react'
 import { GetServerSideProps } from 'next'
 import axios from 'axios'
 import { server } from '../../config'
-import { Group, Detail } from '../../interfaces'
+import { Club, Detail } from '../../interfaces'
 import Layout from '../../src/components/Layout/Layout'
-import GroupDetail from '../../src/components/GroupDetail/GroupDetail'
+import ClubDetail from '../../src/components/ClubDetail/ClubDetail'
 type Props = {
-  groups: Group
+  clubs: Club
   details?: Detail
   errors?: string
 }
 
-const StaticPropsDetail = ({ groups, details, errors }: Props) => {
+const StaticPropsDetail = ({ clubs, details, errors }: Props) => {
   if (errors) {
     return (
       <p>
@@ -23,10 +23,10 @@ const StaticPropsDetail = ({ groups, details, errors }: Props) => {
   return (
     <Layout
       title={`${
-        groups ? groups.name : 'User Detail'
+        clubs ? clubs.name : 'User Detail'
       } | Next.js + TypeScript Example`}
     >
-      {groups && <GroupDetail groupdata={groups} detaildata={details} />}
+      {clubs && <ClubDetail clubdata={clubs} detaildata={details} />}
     </Layout>
   )
 }
@@ -35,10 +35,10 @@ export default StaticPropsDetail
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const {name} = ctx.query;
-  const groups = await axios.get(`${server}/api/groups/${name}`)
+  const clubs = await axios.get(`${server}/api/clubs/${name}`)
   const details = await axios.get(`${server}/api/details/${name}`)
   return { props: {
-    groups: groups.data,
+    clubs: clubs.data,
     details: details.data
   }}
 }
