@@ -76,8 +76,8 @@ const DetailAwards = ({ clubdata, awards }: Props) => (
     <DetailSection title='Awards' isBgColor={true} mainColor={clubdata.color}>
         <ScrollBox>
             <Container>
-                {awards.map((data) => 
-                    <Wrapper>
+                {awards.map((data, index) => 
+                    <Wrapper key={index} >
                         <AwardsTitle>{data.title}</AwardsTitle>
                         <AwardsList>
                             <AwardsItem>
