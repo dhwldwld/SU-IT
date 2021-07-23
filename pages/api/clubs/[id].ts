@@ -3,15 +3,15 @@ import { clubData } from '../../../src/utils/club-data'
 
 const handler = (_req: NextApiRequest, res: NextApiResponse) => {
   try {
-    const { name } = _req.query;
+    const { id } = _req.query;
     
-    const club = clubData[name as string];
+    const club = clubData[id as string];
 
     if (!Array.isArray(club)) {
       res.status(200).json(club)
       return;
     }
-    throw new Error(`Cannot find ${name} club data`)
+    throw new Error(`Cannot find ${id} club data`)
 
   } catch (err) {
     res.status(500).json({ statusCode: 500, message: err.message })

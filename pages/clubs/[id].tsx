@@ -1,5 +1,5 @@
 import React from 'react'
-import { GetServerSideProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import axios from 'axios'
 import { server } from '../../config'
 import { Club, Detail } from '../../interfaces'
@@ -33,10 +33,19 @@ const StaticPropsDetail = ({ clubs, details, errors }: Props) => {
 
 export default StaticPropsDetail
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const {name} = ctx.query;
-  const clubs = await axios.get(`${server}/api/clubs/${name}`)
-  const details = await axios.get(`${server}/api/details/${name}`)
+export const getStaticPaths: GetStaticPaths = async () => {
+  const clubs = await axios.get(`${server}/api/clubs`)
+  const data = clubs.data
+  const paths = data.map((item) => ({
+    params: { id: item.id },
+  }))
+  return { paths, fallback:true }
+}
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const id = ctx.params.id;
+  const clubs = await axios.get(`${server}/api/clubs/${id}`)
+  const details = await axios.get(`${server}/api/details/${id}`)
   return { props: {
     clubs: clubs.data,
     details: details.data

@@ -64,7 +64,7 @@ const IntroduceSection = ({ data }: Props) => {
     <Section page="Introduce" isprimary={false} isblack={false}>
         <Container>
             {data.map((data) => (
-                <Link href="/clubs/[name]" as={`/clubs/${data.name}`} key={data.id}>
+                <Link href="/clubs/[id]" as={`/clubs/${data.id}`} key={data.id}>
                 <a>
                     <ClubCard>
                         <ClubLogo src={data.logo} width={100} height={100} />

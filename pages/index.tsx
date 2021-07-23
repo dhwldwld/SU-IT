@@ -1,5 +1,5 @@
 import React from 'react'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import axios from 'axios'
 import { server } from '../config'
 import Layout from '../src/components/Layout/Layout'
@@ -8,29 +8,16 @@ import IntroduceSection from '../src/components/IntroduceSection/IntroduceSectio
 import ApplySection from '../src/components/ApplySection/ApplySection'
 import QnASection from '../src/components/QnASection/QnASection'
 
-import { ClubData, QnA } from '../interfaces'
+import { Club, QnA } from '../interfaces'
 
 type Props = {
-  clubdata: ClubData
+  clubs: Club[]
   qnadata: QnA[]
   errors?: string
 }
 
 
-const IndexPage = ({ clubdata, qnadata, errors }: Props) => {
-  const clubs = [];
-    for (const [key, value] of Object.entries(clubdata)) {
-      const club = {
-          id: key,
-          logo: value.logo,
-          name: value.name,
-          speciality: value.speciality,
-          color: value.color,
-          description: value.description,
-      }
-      clubs.push(club)
-    }
-
+const IndexPage = ({ clubs, qnadata, errors }: Props) => {
   const qnaclubs = [...clubs]
   qnaclubs.unshift({id:'학과', name: '학과'})
     
@@ -52,12 +39,11 @@ const IndexPage = ({ clubdata, qnadata, errors }: Props) => {
 }
 export default IndexPage
 
-
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const clubs = await axios.get(`${server}/api/clubs`)
   const qnadata = await axios.get(`${server}/api/qna`)
   return { props: {
-    clubdata: clubs.data,
+    clubs: clubs.data,
     qnadata: qnadata.data
   }}
 }
