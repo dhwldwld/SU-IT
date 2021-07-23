@@ -9,15 +9,15 @@ import LoginModal from '../LoginModal/LoginModal'
 import Burger from '../Burger/Burger'
 import Sidebar from '../SideBar/SideBar'
 
-const Container = styled.div<{scrollNav: boolean}>`
+const Container = styled.div`
   position: sticky;
   background: ${({theme}) => theme.colors.white};
   top: 0;
   width: 100%;
+  height: 9rem;
   padding: 0 15px;
   z-index: 3;
-  box-shadow: ${({scrollNav}) => (scrollNav ? '0 1px 1px rgba(0,0,0,.04), 0 10px 30px rgba(0,0,0,.15)': 'none')};
-  height: 9rem;
+  box-shadow: 0 1px 1px rgba(0,0,0,.04), 0 10px 30px rgba(0,0,0,.15);
   transition: .4s;
   ${mixin.tablet(css`
         height: 7rem;
@@ -62,7 +62,6 @@ const NavItem = styled.a`
 `
 
 const Navbar = () => {
-  const [scrollNav, setScrollNav] = useState(false)
   const [isOpenBurger, setIsOpenBurger] = useState(false);
   const toggleBurger = () => {
     setIsOpenBurger(!isOpenBurger)
@@ -72,30 +71,13 @@ const Navbar = () => {
         setIsLoginModal(!isLoginModal)
   }
 
-  const changeNav = () => {
-    if(window.scrollY >= 80) {
-      setScrollNav(true)
-    }
-    else {
-      setScrollNav(false)
-    }
-  }
-
-  const toggleTop = () => {
-    window.scrollTo({top: 0});
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll',changeNav)
-  },[])
-
   return (
-    <Container scrollNav={scrollNav}>
+    <Container>
       {isLoginModal && <LoginModal openModal={toggleLoginModal} />}
       <Wrapper>
         <NavLogo>
           <Link href="/">
-            <a onClick={toggleTop}><Image src="/images/logo-suit.svg" alt="Logo_SU-IT" width={50} height={55} /></a>
+            <a><Image src="/images/logo-suit.svg" alt="Logo_SU-IT" width={50} height={55} /></a>
           </Link>
         </NavLogo>
         <NavImg onClick={toggleBurger}>
