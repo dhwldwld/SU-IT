@@ -1,4 +1,4 @@
-import { ClubData } from '../../interfaces'
+import { ClubData, Club } from '../../interfaces'
 
 /** Dummy user data. */
 export const clubData: ClubData = {
@@ -9,3 +9,19 @@ export const clubData: ClubData = {
   KIWINOMICS: { logo: `/images/KIWINOMICS.png`, name: 'KIWINOMICS', description: '경제 경영 연구동아리', speciality: false, color:'#E0EECD', imgcount:5 },
   TAXI: { logo: `/images/TAXI.png`, name: 'TAXI', description: '세무회계동아리', speciality: false, color:'#6E8C9E',imgcount:7 },
 }
+
+const clubs = [];
+for (const [key, value] of Object.entries(clubData)) {
+  const club = {
+    id: key,
+    logo: value.logo,
+    name: value.name,
+    speciality: value.speciality,
+    color: value.color,
+    description: value.description,
+    imgcount: value.imgcount
+  }
+  clubs.push(club)
+}
+
+export const clubArrayData: Club[] = clubs
