@@ -5,6 +5,7 @@ import { server } from '../../config'
 import { Club, Detail } from '../../interfaces'
 import Layout from '../../src/components/Layout/Layout'
 import ClubDetail from '../../src/components/ClubDetail/ClubDetail'
+
 type Props = {
   clubs: Club
   details?: Detail
@@ -36,7 +37,7 @@ export default StaticPropsDetail
 export const getStaticPaths: GetStaticPaths = async () => {
   const clubs = await axios.get(`${server}/api/clubs`)
   const data = clubs.data
-  const paths = data.map((item) => ({
+  const paths = data.map((item:Club) => ({
     params: { id: item.id },
   }))
   return { paths, fallback:true }
