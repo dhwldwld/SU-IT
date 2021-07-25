@@ -1,13 +1,14 @@
 import React from 'react'
-import { GetStaticProps } from 'next'
-import axios from 'axios'
-import { server } from '../config'
+// import { GetStaticProps } from 'next'
+// import axios from 'axios'
+// import { server } from '../config'
 import Layout from '../src/components/Layout/Layout'
 import BannerSection from '../src/components/BannerSection/BannerSection'
 import IntroduceSection from '../src/components/IntroduceSection/IntroduceSection'
 import ApplySection from '../src/components/ApplySection/ApplySection'
 import QnASection from '../src/components/QnASection/QnASection'
 
+/*
 import { Club, QnA } from '../interfaces'
 
 type Props = {
@@ -47,3 +48,33 @@ export const getStaticProps: GetStaticProps = async () => {
     qnadata: qnadata.data
   }}
 }
+*/
+
+import { clubArrayData } from '../src/utils/club-data'
+import { QnAData } from '../src/utils/QnA-data'
+
+type Props = {
+  errors?: string
+}
+
+
+const IndexPage = ({ errors }: Props) => {
+  const qnaclubs = [...clubArrayData]
+  qnaclubs.unshift({id:'학과', name: '학과'})
+  if (errors) {
+    return (
+      <p>
+        <span style={{ color: 'red' }}>Error:</span> {errors}
+      </p>
+    )
+  }
+  return (
+    <Layout title="Home | SU-IT">
+      <BannerSection />
+      <IntroduceSection data={clubArrayData}/>
+      <ApplySection clubs={clubArrayData} />
+      <QnASection data={QnAData} clubs={qnaclubs}/>
+    </Layout>
+  )
+}
+export default IndexPage
