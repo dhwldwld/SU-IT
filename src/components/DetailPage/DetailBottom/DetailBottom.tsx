@@ -14,8 +14,9 @@ type Props = {
 const Container = styled.div`
     display: flex;
     align-items: center;
-    min-height: 750px;
+    justify-content: center;
     height: 600px;
+    margin: 0 auto;
     padding: 50px 15px;
     ${mixin.tablet(css`
         flex-direction: column;
@@ -23,10 +24,19 @@ const Container = styled.div`
 `
 const Wrapper = styled.div`
     display: flex;
+    justify-content: flex-end;
+    &:last-child {
+        justify-content: flex-start;
+    }
     flex: 1;
     margin: 0 10px;
     ${mixin.tablet(css`
         width: 100%;
+        flex: none;
+        justify-content: flex-start;
+        &:last-child {
+            justify-content: flex-start;
+        }
     `)}
 `
 const Bar = styled.div`
@@ -39,16 +49,20 @@ const Bar = styled.div`
     `)}
 `
 const ImgContent = styled.div`
-    flex: 1;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
     margin-right: 50px;
+    ${mixin.tablet(css`
+        margin-right: 10px;
+        min-width: 80px;
+        width: 80px;
+    `)}
 `
 const Content = styled.div`
     display: flex;
     flex-direction: column;
-    flex: 1.5;
+    ${mixin.tablet(css`
+        width: 100%;
+    `)}
 `
 const Text = styled.div``
 const Button = styled.div`
@@ -60,6 +74,10 @@ const Title = styled.span`
     font-size: ${({theme}) => theme.fontSize.title};
     font-weight: bold;
     margin-bottom: 50px;
+    ${mixin.tablet(css`
+        margin: 0;
+        font-size: 24px;
+    `)}
 `
 const Description = styled.p`
     font-size: ${({theme}) => theme.fontSize.description};
@@ -95,7 +113,7 @@ const DetailBottom = ({ contact }: Props) => {
                     <Text>
                         <Title>Apply</Title>
                         <Description>
-                            지원폼은'신중'하고<br/>
+                            지원폼은'신중'하고
                             '성의'있게 작성해주시기 바랍니다.
                         </Description>
                     </Text>
