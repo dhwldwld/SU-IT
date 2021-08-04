@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import styled,{ css } from 'styled-components'
 
 import * as mixin from '../../styles/mixin'
@@ -69,6 +68,14 @@ const InfoMemberList = styled.div<{flex: number}>`
         flex: 2;
     `)}
 `
+const SunrinLogoImg = styled.img`
+    width: 300px;
+    height: 55px;
+`
+const SocialImage = styled.img`
+    width: 44px;
+    height: 44px;
+`
 
 const Footer = () => {
   return (
@@ -77,14 +84,14 @@ const Footer = () => {
           <FooterWrapper>
               <ContentWrapper>
                 <Content>
-                    <Image src="/images/logo-sunrin.svg" width={300} height={55}/>
+                    <SunrinLogoImg src="/images/logo-sunrin.svg" width={300} height={55}/>
                 </Content>
                 <Content>
                     <SocialLink href="https://www.facebook.com/profile.php?id=100054473020768" target="_blank" aria-label="Facebook">
-                            <Image src="/images/facebook.svg" width={44} height={44}/>
+                            <SocialImage src="/images/facebook.svg" alt="facebook_site_link" />
                     </SocialLink>
                     <SocialLink href="http://sunrint.hs.kr/index.do" target="_blank" aria-label="Sunrint">
-                        <Image src="/images/sunrin.svg" width={44} height={44}/>
+                        <SocialImage src="/images/sunrin.svg" alt="surin_site_link" />
                     </SocialLink>
                 </Content>
               </ContentWrapper>

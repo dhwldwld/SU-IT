@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import styled,{ css } from 'styled-components';
 
 import { Contact } from '../../../../interfaces'
@@ -83,13 +82,17 @@ const Description = styled.p`
     font-size: ${({theme}) => theme.fontSize.description};
     margin-bottom: 50px;
 `
+const Img = styled.img`
+    width: 150px;
+    height: 150px;
+`
 
 const DetailBottom = ({ contact }: Props) => {
     return (
         <Container>
             <Wrapper>
                 <ImgContent>
-                    <Image src='/images/talk.svg' alt='Call' width={150} height={150} />
+                    <Img src='/images/talk.svg' alt='Call' />
                 </ImgContent>
                 <Content>
                     <Text>
@@ -107,7 +110,7 @@ const DetailBottom = ({ contact }: Props) => {
             <Bar />
             <Wrapper>
                 <ImgContent>
-                    <Image src='/images/pencil.svg' alt='Apply_pencil' width={150} height={150} />
+                    <Img src='/images/pencil.svg' alt='Apply_pencil' />
                 </ImgContent>
                 <Content>
                     <Text>

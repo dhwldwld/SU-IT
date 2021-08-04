@@ -1,5 +1,4 @@
-import React from 'react'
-import Image from 'next/image'
+import React from 'react' 
 import styled, { css } from 'styled-components'
 
 import * as mixin from '../../../styles/mixin'
@@ -20,8 +19,10 @@ const Container = styled.div`
 const Logo = styled.div`
     margin-bottom: 5rem;
 `
-const Img = styled(Image)`
+const Img = styled.img`
     border-radius: 20px;
+    width: 160px;
+    height: 160px;
 `
 const IntrduceText = styled.p`
     white-space: pre-line;
@@ -38,7 +39,7 @@ const DetailIntorduce = ({ clubdata, introduce }: Props) => {
     <DetailSection title='Introduce' isBgColor={false} mainColor={clubdata.color}>
         <Container>
             <Logo>
-                <Img src={clubdata.logo} alt={clubdata.name} width={160} height={160} />
+                <Img src={clubdata.logo} alt={clubdata.name} />
             </Logo>
             <IntrduceText>
                 {introduce}

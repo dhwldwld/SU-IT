@@ -13,6 +13,11 @@ type Props = {
 const Wrapper = styled.div`
     height: 500px;
 `
+const Img = styled.img`
+    object-fit: contain;
+    width: 500px;
+    height: 500px;
+`
 
 const DetailCarousel = ({ name, imgcount }: Props) => {
     const array = Array.from({length: imgcount}, (v, i) => i);
@@ -20,7 +25,7 @@ const DetailCarousel = ({ name, imgcount }: Props) => {
         <Carousel showThumbs={false} autoPlay={true} infiniteLoop={true} showStatus={false} showIndicators={false}>
             {array.map((_, index) =>
                 <Wrapper key={index}>
-                    <Image key={index}  src={`/detailCards/${name}/${index}.png`} layout='fill' objectFit='contain' />
+                    <Img key={index}  src={`/detailCards/${name}/${index}.png`} />
                 </Wrapper>  
             )}
         </Carousel>

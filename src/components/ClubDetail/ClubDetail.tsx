@@ -1,5 +1,4 @@
 import React,{ useState, useEffect } from 'react'
-import Image from 'next/image'
 import styled from 'styled-components'
 import { Club, Detail } from '../../../interfaces'
 import DetailCarousel from '../DetailPage/DetailCarousel/DetailCarousel'
@@ -15,8 +14,10 @@ type GroupDetailProps = {
 
 const Container = styled.div`
 `
-const Logo = styled(Image)`
+const Logo = styled.img`
     border-radius: 20px;
+    width: 120px;
+    height: 120px;
 `
 const DetailTop = styled.div`
     display: flex;
@@ -35,7 +36,7 @@ const ClubDetail = ({ clubdata, detaildata }: GroupDetailProps) => {
     return(
     <Container>
         <DetailTop>
-            <Logo src={clubdata.logo} alt={clubdata.name} width={120} height={120} />
+            <Logo src={clubdata.logo} alt={clubdata.name} />
         </DetailTop>
         <DetailCarousel name={clubdata.name} imgcount={clubdata.imgcount} />
         <DetailIntroduce clubdata={clubdata} introduce={detaildata.introduce} />

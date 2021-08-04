@@ -1,5 +1,4 @@
-import React,{ useState,useEffect } from 'react'
-import Image from 'next/image'
+import React,{ useState } from 'react'
 import Link from 'next/link'
 import styled,{ css } from 'styled-components'
 
@@ -81,7 +80,6 @@ const Navbar = () => {
       <Wrapper>
         <NavLogo>
           <Link href="/">
-            {/* <a><Image src="/images/logo-suit.svg" alt="Logo_SU-IT" width={50} height={55} /></a> */}
             <a><Img src="/images/logo-suit.svg" alt="Logo_SU-IT" /></a>
           </Link>
         </NavLogo>

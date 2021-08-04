@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import styled,{ css } from 'styled-components'
 
@@ -40,8 +39,10 @@ const ClubCard = styled.div`
         filter: opacity(80%);
     }
 `
-const ClubLogo = styled(Image)`
+const ClubLogo = styled.img`
     border-radius: 50%;
+    width: 100px;
+    height: 100px;
 `
 const Title = styled.div`
     display: flex;
@@ -67,7 +68,7 @@ const IntroduceSection = ({ data }: Props) => {
                 <Link href="/clubs/[id]" as={`/clubs/${data.id}`} key={data.id}>
                 <a>
                     <ClubCard>
-                        <ClubLogo src={data.logo} width={100} height={100} />
+                        <ClubLogo src={data.logo} alt={data.name} />
                         <Title>
                             <ClubTitle>{data.name}</ClubTitle>
                             {data.speciality ? <ClubIsSpeciality>(전문)</ClubIsSpeciality> : null }
