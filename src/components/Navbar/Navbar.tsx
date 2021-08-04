@@ -30,6 +30,10 @@ const Wrapper = styled.div`
   height: 100%;
 `
 const NavLogo = styled.div``
+const Img = styled.img`
+  width: 50px;
+  height: 55px;
+`
 const NavImg = styled.button`
   display: none;
   font-size: 3.5rem;
@@ -77,7 +81,8 @@ const Navbar = () => {
       <Wrapper>
         <NavLogo>
           <Link href="/">
-            <a><Image src="/images/logo-suit.svg" alt="Logo_SU-IT" width={50} height={55} /></a>
+            {/* <a><Image src="/images/logo-suit.svg" alt="Logo_SU-IT" width={50} height={55} /></a> */}
+            <a><Img src="/images/logo-suit.svg" alt="Logo_SU-IT" /></a>
           </Link>
         </NavLogo>
         <NavImg onClick={toggleBurger}>
