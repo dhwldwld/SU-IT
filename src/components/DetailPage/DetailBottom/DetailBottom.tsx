@@ -51,9 +51,7 @@ const ImgContent = styled.div`
     display: flex;
     margin-right: 50px;
     ${mixin.tablet(css`
-        margin-right: 10px;
-        min-width: 80px;
-        width: 80px;
+        display: none;
     `)}
 `
 const Content = styled.div`
@@ -74,7 +72,6 @@ const Title = styled.span`
     font-weight: bold;
     margin-bottom: 50px;
     ${mixin.tablet(css`
-        margin: 0;
         font-size: 24px;
     `)}
 `
